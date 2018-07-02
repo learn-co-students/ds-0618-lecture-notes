@@ -8,7 +8,7 @@
 
 3. Note that we have an airline class and a flight class.  Describe the relationship between airlines and flights.
 4. Build out the following
-  (To do the following, look up class methods in Python)
+  (To do the following, look up class methods and class attributes in Python)
   - Airline.all()
     -> should return all of the Airlines that have been initialized
   - Flight.all()
