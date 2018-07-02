@@ -1,4 +1,4 @@
 from environment import *
 
-twa = Airline()
+twa = Airline(1980)
 fivefortyfive = Flight()

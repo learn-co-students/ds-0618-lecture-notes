@@ -7,6 +7,11 @@
   What do we have access to if we do that?  Why?
 
 3. Note that we have an airline class and a flight class.  Describe the relationship between airlines and flights.
+  Flight belongs to an airline
+  an Airline has many flights
+  One to many relationship
+  Airline -> many flights
+
 4. Build out the following
   (To do the following, look up class methods and class attributes in Python)
   - Airline.all()
