@@ -5,5 +5,5 @@
 3. Consider where the relationship between a passenger and a ticket
  - write a method to call `ticket.passenger` which returns the passenger associated with a ticket
  - write a method to call `passenger.tickets` to return the list of tickets associated with each passenger
-4. Write a method called flight.tickets to return the list of all `tickets` associated with a flight
-5. Write a method called flight.passengers to return a list of the passengers associated 
+4. Write a method called `flight.tickets` to return the list of all `tickets` associated with a flight
+5. Write a method called `flight.passengers` to return a list of the passengers associated
