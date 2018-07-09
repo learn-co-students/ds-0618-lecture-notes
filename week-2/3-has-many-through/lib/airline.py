@@ -5,7 +5,6 @@ class Airline:
     _all = []
 
     def __init__(self, year, name):
-        print(vars(self))
         #the airline that's being initialized add an airline to _all[]
         Airline._all.append(self)
         self._year = year

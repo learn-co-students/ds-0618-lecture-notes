@@ -1,10 +1,9 @@
 from lib.query import *
-
+from lib.ticket import Ticket
 class Flight:
     _all = []
 
     def __init__(self, name):
-        print(vars(self))
         #the airline that's being initialized add an airline to _all[]
         Flight._all.append(self)
         self._name = name
@@ -31,3 +30,4 @@ class Flight:
         # and find the one that matches by year
         return Query.find_by_name(cls, name)
         # return [object for object in cls.all() if object.name == name]
+    
