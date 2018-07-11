@@ -1,0 +1,11 @@
+tags:
+  - sql
+  - advanced
+  - jupyter
+  - CTEs
+
+languages:
+  - sql
+  - python
+
+jupyter_notebook: true
