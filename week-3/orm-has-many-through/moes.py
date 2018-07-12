@@ -12,13 +12,17 @@ class Bartender(Base):
     name = Column(Text)
     hometown = Column(Text)
     birthyear = Column(Integer)
+    customers = relationship("Customer", secondary="orders", back_populates="bartenders")
 
 class Order(Base):
     __tablename__ = 'orders'
     id = Column(Integer, primary_key = True)
-    customer_id = Column(Integer, ForeignKey('customers.id'))
+    customer_id = Column(Integer, ForeignKey('customers.id'), default=None)
+    customer = relationship('Customer', back_populates="orders")
     bartender_id = Column(Integer, ForeignKey('bartenders.id'))
+
     drink_id = Column(Integer, ForeignKey('drinks.id'))
+
 
 class Drink(Base):
     __tablename__ = 'drinks'
@@ -35,6 +39,10 @@ class Customer(Base):
     name = Column(Text)
     hometown = Column(Text)
     birthyear = Column(Integer)
+    orders = relationship(Order, back_populates="customer", lazy="dynamic")
+    bartenders = relationship("Bartender", secondary="orders", back_populates="customers")
+
+    # def add_order():
 
 
 engine = sqlalchemy.create_engine('sqlite:///moes.db', echo=True)
