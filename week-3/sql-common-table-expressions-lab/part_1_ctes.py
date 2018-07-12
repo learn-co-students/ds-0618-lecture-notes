@@ -9,6 +9,6 @@ def select_all_above_average_sales():
 
 
 "SELECT name FROM customers WHERE customers.id IN (SELECT customer_id from user_events WHERE user_events.login_date > );"
+''
 
-
-'SELECT *, AVG(amount) as sales_amount FROM sales HAVING sales.amount > sales_amount;'
+'SELECT *, AVG(amount) as sales_amount FROM sales WHERE sales.amount > (SELECT AVG(amount) from sales);'
