@@ -1,0 +1,23 @@
+html {
+  color: red;
+}
+
+
+.add-red {
+  background-color: red;
+}
+
+.primary-color {
+  color: blue;
+}
+
+#nav-items {
+  background-color: blue;
+}
+
+.color-blue {
+  color: blue;
+}
+/* li {
+  background-color: red;
+} */
