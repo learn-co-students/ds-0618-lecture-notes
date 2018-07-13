@@ -3,3 +3,5 @@
 CSS
 
 Scraping
+ - Collect information for each apartment
+  
