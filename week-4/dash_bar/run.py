@@ -1,2 +1,3 @@
 from package import app
-app.run(debug=True)
+
+app.run_server(debug=True)
