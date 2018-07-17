@@ -58,11 +58,11 @@ def show(id):
 #     app.run(debug=True)
 
 # Create
-    insert into users ()
+    # insert into users ()
 # Read
-    index -> select * from users;
-    show -> select * from users where users.id = 1
+    # index -> select * from users;
+    # show -> select * from users where users.id = 1
 # Update
-    SET 'foobar' name where id = 1
+    # SET 'foobar' name where id = 1
 # Destroy
-    delete from users where id = 1;
+    # delete from users where id = 1;
