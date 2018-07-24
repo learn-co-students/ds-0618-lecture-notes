@@ -2,8 +2,6 @@ from restaurants.models import Neighborhood, Category, Restaurant
 from restaurants import db
 from sqlalchemy import func
 
-
-
 def neighborhoods():
     neighborhoods = Neighborhood.query.all()
     neighborhood_dicts = [{'label': neighborhood.name, 'value': neighborhood.id} for neighborhood in neighborhoods]
@@ -24,6 +22,7 @@ def category_values(neighborhood_values):
 
 def filter_restaurants(query, neighborhood_values=None, category_values=None):
     if neighborhood_values:
+        # [1, 2]
         query = query.filter(Restaurant.neighborhood_id.in_(neighborhood_values))
     if category_values:
         query = query.filter(Restaurant.category_id.in_(category_values))
@@ -36,8 +35,10 @@ def restaurants_dictionaries(neighborhood_values=None, category_values=None):
     return restaurants
 
 def rating_histogram(neighborhood_values=None, category_values=None):
+    # [1, 2]
     ratings_query = db.session.query(Restaurant.rating, func.count(Restaurant.id)).group_by(Restaurant.rating)
     filtered_restaurants = filter_restaurants(ratings_query, neighborhood_values = neighborhood_values, category_values=category_values)
+    # [(1, 12), (1.5, 13)]
     ratings = filtered_restaurants.all()
     x_values = [rating[0] for rating in ratings]
     y_values = [rating[1] for rating in ratings]

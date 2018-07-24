@@ -2,13 +2,11 @@ import dash
 import dash_core_components as dcc
 import dash_html_components as html
 from restaurants import app
-import dash_core_components as dcc
 import pdb
 from restaurants.routes import (neighborhoods as get_neighborhoods,
 categories as get_categories,
 rating_histogram, restaurants_dictionaries)
 import dash_table_experiments as dt
-
 
 neighborhoods = get_neighborhoods()
 categories = get_categories()
@@ -17,6 +15,22 @@ restaurant_keys = list(restaurants_dictionaries()[0].keys())
 
 app.layout = html.Div([
     html.H2('Neighborhoods'),
+#     dcc.Dropdown(
+#     options=[
+#         {'label': 'New York City', 'value': 'NYC'},
+#         {'label': 'Montréal', 'value': 'MTL'},
+#         {'label': 'San Francisco', 'value': 'SF'}
+#     ],
+#     multi=True,
+    dcc.Checklist(
+    options=[
+        {'label': 'New York City', 'value': 'NYC'},
+        {'label': 'Montréal', 'value': 'MTL'},
+        {'label': 'San Francisco', 'value': 'SF'}
+    ],
+    values=['MTL', 'SF'],
+    id='mychecklist'
+    ),
     dcc.Dropdown(
         id='neighborhood-dropdown',
         options=neighborhoods,
@@ -40,7 +54,8 @@ app.layout = html.Div([
         sortable=True,
         selected_row_indices=[],
         id='datatable-restaurants'
-    )
+    ),
+    html.H3('goo', id="ok")
 ])
 
 
@@ -50,8 +65,16 @@ app.layout = html.Div([
     dash.dependencies.Input('category-dropdown', 'value')
     ])
 def update_histogram(neighborhood_values, category_values):
+    # pdb.set_trace()
+    # [1, 2]
     hist = rating_histogram(neighborhood_values=neighborhood_values, category_values=category_values)
     return hist
+
+@app.callback(dash.dependencies.Output('ok', 'children'),
+ [dash.dependencies.Input('mychecklist', 'values')])
+def call_checklist(values):
+    pdb.set_trace()
+    pass
 
 @app.callback(
     dash.dependencies.Output('datatable-restaurants', 'rows'),
