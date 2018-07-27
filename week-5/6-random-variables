@@ -1,0 +1,271 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### Outline"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "A Random Variable (RV) is a variable that probabilistically takes on different values. "
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "#### Definition\n",
+    "\n",
+    "The expected value for a discrete random variable is the expected value which is:\n",
+    "\n",
+    "$$E[X] = \\sum xP(x) $$\n",
+    "\n",
+    "* X = represents our random variable, can think of it as the set of outcomes, ie the sample space\n",
+    "* x = specific value of x "
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### Expected value"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "#### Example 1\n",
+    "Calculating expected value: \n",
+    "    \n",
+    "If have two classes of 5 and 40 students the expected value is \n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "#### Example 2\n",
+    "\n",
+    "Now let's say we have three classes of size 5, 10, and 150, and choose one at random.  The expectation of our class size is.  "
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### Variance "
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "![](./resources/mean-vs-variance.png)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "So one way of describing this is the amount of spread involved.  So how far are the values from one another.\n",
+    "\n",
+    "$Var(X) = E[(X - u)^2] =  \\sum_x(x - u)^2p(x) $\n",
+    "\n",
+    "Intuitively this is the weighted average distance of a sample to the mean.\n",
+    "\n",
+    "How far away are our set of samples away from the mean.\n",
+    "\n",
+    "* Take a random variable, and subtract the mean of the random variable and square the difference.  This is the variance.\n",
+    "\n",
+    "• SD(X) = Var(x)\n",
+    "\t• Variance is in units squared\n",
+    "\t• Standard deviation is the same deviation "
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Different way of writing variance:\n",
+    "\n",
+    "*$Var(X) = E[X^2] - E[X]^2$\n",
+    "\n",
+    "> So these two terms are very different.  The first one is if you take X and square it, what is the expectation of the result of that.  And the other is what's the expectation of X, and then square it.\n",
+    "\n",
+    "For example if we let X be the value of rolling a 6 sided die, then:\n",
+    "\n",
+    "* $E[X^2] = 1^2(1/6) + 2^2(1/6) + 3^2(1/6) ...  = 91/6$\n",
+    "* $(E[X])^2 = (7/2)^2$\n",
+    "* So variance is $E[X^2] - (E[X])^2 = 35/12$\n",
+    "This is the numerical description of spread."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "#### Probability Mass Function\n",
+    "\n",
+    "1. As a function/dictionary \n",
+    "\n",
+    "For a discrete random variable, we have a mapping between the values a random variable can take on, and the probability of that value.\n",
+    "\n",
+    "And the PMF for a discrete RV is just a histogram.  \n",
+    "\n",
+    "![](./resources/pmf-two-dice-rolls.png)\n",
+    "\n",
+    "![](./resources/one-die-roll.png)\n",
+    "\n",
+    "Note that $P_x(x)$ completely describes a discrete random variable.  Or in other words, knowing this function, we can determine anything else one might want to know about a random variable.  It must be the case that P(x)x = 1.\n",
+    "\n",
+    "#### Our first probability distribution: Coin flips \n",
+    "\n",
+    "Let X = number of heads after a coin is flipped three times. What is the probability of\n",
+    "the set of different outcomes?\n",
+    "\n",
+    "* So far we have calculate the probability of a given event occurring \n",
+    "* But we know that really, we can expect a range of outcomes \n",
+    "* And this is by definition, after for an outcome to be in our sample space, the outcome not zero"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "${n \\choose k} p^k(1-p)^{n-k}$\n",
+    "> This is because there are ${n \\choose k}$ orderings and $p^k(1-p)^{n-k}$ is the probability of one particular ordering.\n",
+    "\n",
+    "#### Binomial Random Variable\n",
+    "\n",
+    "1. The number of observations n is fixed.\n",
+    "2. Each observation is independent.\n",
+    "3. Each observation represents one of two outcomes (\"success\" or \"failure\").\n",
+    "4. The probability of \"success\" p is the same for each outcome."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### Example - brown eyed children\n",
+    "\n",
+    "> We are trying to predict the number of browned eyed children from a couple.  Both mom and dad are Bb, Bb.  \n",
+    "\n",
+    "* Child has brown eyes if either or both are B.  \n",
+    "* Only if bb does he get blue eyes.  \n",
+    "* There are four children.  What is the probability three have brown eyes.\n",
+    "\n",
+    "Probability \n",
+    "\n",
+    "|               |  MB           | Mb    |\n",
+    "| ------------- |:-------------:| -----:|\n",
+    "|       DB      | BB            | Bb    |\n",
+    "|       Db      | bB            |   bb  |"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "> So we could calculate this, but once you think of this in terms of these distributions you get better at translating these problems into these distributions."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### Properties of a binomial"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "* E[X] = np \n",
+    "> n experiments, p of them to be success, the expected number of successes is n*p\n",
+    "> Makes sense because \n",
+    "\n",
+    "* Var(x) = np(1 - p)\n",
+    "\n",
+    "Example of expectation \n",
+    "* Flip a coin three times, what is the expected number of heads."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "\n",
+    "* 0:$ {3\\choose0} (.5)^3 => .125*1 = .125$\n",
+    "\n",
+    "* 1: $ {3\\choose1}(.5)^3 => .125*3 = .375$\n",
+    "\n",
+    "* 2: $ {3\\choose 2} (.5)^3 => .125*3 = .375$\n",
+    "\n",
+    "* 3: $ {3\\choose 3} (.5)^3 => .125*1 = .125$\n",
+    "\n",
+    "Next step take the weighted sum "
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### On to the next one\n",
+    "\n",
+    "\n",
+    "\n",
+    "* We let students retake an exam for mod 4 as many times as they want\n",
+    "* The probability of passing is .2 \n",
+    "What is the probability that it takes 3 tries before passing?\n",
+    "\n",
+    "> X is number of independent trials until the first success\n",
+    "> p is the probability of success of each trial \n",
+    "\n",
+    "### properties\n",
+    "\n",
+    "$P(X = x) = (1 - p)^{n - 1} \\times p$ \n",
+    "\n",
+    "\n",
+    "$E(x) = 1/p $\n",
+    "$ Var(X) = \\frac{1 - p}{p^2} $ \n",
+    "\n",
+    "* Flipping a coin until the first head appears\n",
+    "* Or draw cards (with replacement), and probability until the first ace appears."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.5.5"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 2
+}
