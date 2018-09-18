@@ -47,6 +47,7 @@ C. Module 3
 D. Module 4
   * Principal Component Analysis
   * Deep learning techniques (optional) or clustering
+  * Recommendation Engines (optional)
 
 E. Deliverable
 
